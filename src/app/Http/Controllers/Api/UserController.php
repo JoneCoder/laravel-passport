@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function userInfo(Request $request)
     {
-        $user = Auth::user();
+        $user  = Auth::user();
         $token = RefreshTokenCreated::dispatch($user);
         return response()->json(['user' => $user, 'access_token' => $token], 200);
     }
